@@ -5,12 +5,16 @@ AUTOMAKE_OPTIONS = gnu 1.6
 # make sure we pass the correct jimtcl flags to distcheck
 DISTCHECK_CONFIGURE_FLAGS = --disable-install-jim
 
+# do not run Jim Tcl tests (esp. during distcheck)
+check-recursive:
+	@true
+
 nobase_dist_pkgdata_DATA = \
 	contrib/libdcc/dcc_stdio.c \
 	contrib/libdcc/dcc_stdio.h \
 	contrib/libdcc/example.c \
 	contrib/libdcc/README \
-	contrib/99-openocd.rules
+	contrib/60-openocd.rules
 
 SUBDIRS =
 DIST_SUBDIRS =
